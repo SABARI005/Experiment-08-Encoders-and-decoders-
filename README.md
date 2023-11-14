@@ -1,4 +1,6 @@
-# Experiment-08- Encoders-and-decoders 
+# NAME :SABARI S
+# REGISTER NUMBER: 212222240085
+# Experiment-07- Encoders-and-decoders 
 ### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
@@ -60,18 +62,44 @@ D7 = X Y Z
 
 
 ### PROGRAM 
-/*
-Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-
-
+```Developed by : SABARI S
+Register Number : 212222240085
+Encoder:
+module encoder(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+or(a0,y7,y5,y3,y1);
+or(a1,y7,y6,y3,y2);
+or(a2,y7,y6,y5,y4);
+endmodule
+Decoder
+module decoder(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input a0,a1,a2;
+output y0,y1,y2,y3,y4,y5,y6,y7;
+wire a0bar,a1bar,a2bar;
+not(a0bar,a0);
+not(a1bar,a1);
+not(a2bar,a2);
+and(y0,a0bar,a1bar,a2bar);
+and(y1,a0,a1bar,a2bar);
+and(y2,a0bar,a1,a2bar);
+and(y3,a0,a1,a2bar);
+and(y4,a0bar,a1bar,a2);
+and(y5,a0,a1bar,a2);
+and(y6,a0bar,a1,a2);
+and(y7,a0,a1,a2);
+endmodule
+```
 
 
 
 
 ### RTL LOGIC  
+# ENCODER
+![image](https://github.com/SABARI005/Experiment-08-Encoders-and-decoders-/assets/118660461/23379779-9fef-4287-a1af-04ff56712f3a)
+
+# DECODER
+![image](https://github.com/SABARI005/Experiment-08-Encoders-and-decoders-/assets/118660461/0f2370f9-9a52-4289-bc55-23a476147953)
 
 
 
@@ -79,18 +107,18 @@ RegisterNumber:
 
 
 
+### TRUTH TABLE
+# ENCODER
+![image](https://github.com/SABARI005/Experiment-08-Encoders-and-decoders-/assets/118660461/6b146cfa-3952-4c4f-893c-298923549114)
 
-### TIMING DIGRAMS  
+# DECODER
+![image](https://github.com/SABARI005/Experiment-08-Encoders-and-decoders-/assets/118660461/3d17caf6-8196-4308-82ab-0d39198405a5)
 
+### OUTPUT WAVEFORM
+# ENCODER
+![image](https://github.com/SABARI005/Experiment-08-Encoders-and-decoders-/assets/118660461/5562a9be-5a0a-477c-b414-f564645ce392)
+# DECODER
+![image](https://github.com/SABARI005/Experiment-08-Encoders-and-decoders-/assets/118660461/dd427ca5-9555-4afa-853c-f0624cac7521)
 
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+### RESULTS
+Thus the program to design encoder and decoder is executed successfully .
